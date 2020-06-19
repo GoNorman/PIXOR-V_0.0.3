@@ -1,97 +1,70 @@
-html, body{
-    background-color: #363232;
-    padding: 0;
+html, body {
     margin: 0;
+    padding: 0;
+    background-color: gray;
 }
 
-.all_photo {
-    margin-left: 22px;
-}
-
-.link_profile {
-    text-decoration: none;
-    color: white;
-    font-size: 20px; 
-    display: flex;
-    justify-content: space-around;
-    margin-top: 3px;
-}
-
-.link_profile p {
-    padding: 10px;
-}
-
-.photo{
+.photo {
     display: inline-block;
-    padding: 3px;
-    margin-left: 20px;
-    margin-bottom: 25px;
+    margin: 23px;
 }
 
 img {
-    border: solid;
-    border-color: white;
+    border: solid white;
+    text-decoration: none;
 }
 
-.description{
+.more {
+    text-align: center;
+    cursor: pointer;
+}
+
+.bio a{
+    color: white;
+    text-decoration: none;
+}
+
+.big_img {
+    text-align: center;
+}
+
+.description {
+    color: white;
+    margin-bottom: 30px;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
-.description p {
-    margin: 0px;
+.like_img {
+    border: none;
+    width: 22px;
+    height: 22px;
+    margin-top: 20px;
 }
 
-.img_profile{
-    border: solid;
-    border-color: white;
-    border-radius: 100px;
-}
-
-.description_like {
-    display: flex;
+.description_right {
+    font-size: 20px;
     margin-right: 5px;
-    font-size: 20px; 
-    margin-top: 9px;
+    display: flex;
+    justify-content: space-around;
 }
 
-.description_like p {
+.description_right p {
+    margin-right: 5px;
+}
+
+.description_left {
     margin-left: 5px;
-    margin-top: 2px;
+    font-size: 20px;
+    margin-top: 20px;
 }
 
-.description_like img {
-    margin-top: 3px;
+.link {
+    text-decoration: none;
+    color: white;
 }
 
 p {
     color: white;
-}
-
-.like {
-    border: none;
-    width: 20px;
-    height: 20px;
-}
-
-a.link{
-    margin-left: 35%;
-    margin-top: 30px;
-    color: white;
-    padding: 15px 20px;
-    text-transform: uppercase;
-    width:350px;
-    text-decoration:none;
-    text-align:center;
-    display: block;
-    background-image: linear-gradient(to left,transparent,transparent 50%,#00c6ff 50%,#00c6ff);
-    background-position: 100% 0;
-    background-size: 200% 100%;
-    transition: all .25s ease-in;
-    font: 400 18px tahoma;
-    border: 1px solid white;
-}
-a.link:hover {
-    background-position: 0 0;
-    color:#fff;
+    font-size: 20px;
 }

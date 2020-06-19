@@ -1,18 +1,29 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
-import ReactDom from "react-dom";
-import { createStore, applyMiddleware } from 'redux';
-import "./style.css";
-import App from './container/app'
-import list from './reducer/list.js';
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension'
+import ReactDOM from "react-dom";
+import { createStore, applyMiddleware } from "redux";
+import App from './container/app';
+import './style/style.css'
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider } from "react-redux";
+import { list } from './reducer/list_photo';
 
-const store = createStore(list, composeWithDevTools(applyMiddleware(thunk)));
-//console.log(store.getState());
-ReactDom.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+
+const store = createStore(list, composeWithDevTools(applyMiddleware(thunk)))
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
   document.getElementById("root")
 );
+
+
+
+
+
+
+

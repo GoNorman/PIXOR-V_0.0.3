@@ -1,41 +1,34 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable array-callback-return */
-import React, { Component } from 'react';
-import { show_photos, like_photo } from "../action/action";
-import { connect } from "react-redux";
-import Image from "../component/image";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import like from '../img/like.png';
 
-class HomePage extends Component{
-    constructor(props){
-        super(props);
-        this.props.on_show_photos();
-    }
-    render(){
-        const { list, on_show_photos, on_like_photo } = this.props;
-        return (
-          <React.Fragment>
-            <Image list={list} on_show_photos={on_show_photos} on_like_photo={on_like_photo} />
-          </React.Fragment>
-        );
-    }
+const HomePage = props =>{
+    const { photo, show_photos, like_photo} = props;
+    return (
+      <React.Fragment>
+          {photo.map((ev, i) => {
+              console.log(ev)
+            return (
+              <div className="photo">
+                <NavLink to={`/open/${ev.id}`}>
+                  <img key={i} src={ev.photo.urls.small} alt="" />
+                </NavLink>
+                <div className="description">
+                  <div className="description_left">
+                  <a className='link' href={ev.photo.links.html}>{ev.photo.user.name}</a>
+                  </div>
+                  <div className="description_right">
+                    <p>{ev.photo.likes}</p>
+                    <img className="like_img" alt='' src={like}/>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        <p className='more' onClick={show_photos}>MORE</p>
+        <button onClick={like_photo}>like</button>
+      </React.Fragment>
+    );
 }
-
-
-const mapStateToProps = (state) => {
-  return {
-    list: state,
-  };
-};
-
-const mapDispatchToProps = (dispath) => {
-  return {
-    on_show_photos: () => dispath(show_photos()),
-    on_like_photo: () => dispath(like_photo()),
-  };
-};
-
-HomePage = connect(mapStateToProps, mapDispatchToProps)(HomePage);
 
 export default HomePage;

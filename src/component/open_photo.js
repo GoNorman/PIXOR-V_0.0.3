@@ -1,12 +1,29 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable array-callback-return */
-import React from 'react';
+/* eslint-disable eqeqeq */
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { mapStateToProps } from '../connect(redux)/to_props';
 
-
-const OpenPhoto = (props) => {
-    return <React.Fragment></React.Fragment>
+class OpenPhoto extends React.Component {
+    render() {
+        const { photo } = this.props;
+    return (
+      <div>
+        <NavLink to="/home">BACK</NavLink>
+        {photo.map(ev => {
+            if(ev.id == this.props.match.params.id){
+                return (
+                <React.Fragment>
+                    <p className="big_img"><img src={ev.photo.urls.regular} alt=''/></p>
+                </React.Fragment>)
+            } 
+        })}
+      </div>
+    );
+  }
 }
+
+OpenPhoto = connect(mapStateToProps)(OpenPhoto);
 
 export default OpenPhoto;

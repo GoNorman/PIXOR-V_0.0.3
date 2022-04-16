@@ -10,6 +10,7 @@ const HomePage = props =>{
               console.log(ev)
             return (
               <div className="photo">
+                <h1>test</h1>
                 <NavLink to={`/open/${ev.id}`}>
                   <img key={i} src={ev.photo.urls.small} alt="" />
                 </NavLink>
